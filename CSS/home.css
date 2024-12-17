@@ -1,0 +1,86 @@
+
+
+body{
+    background: linear-gradient(to bottom left,rgb(252, 141, 252),rgb(117, 117, 255)) no-repeat fixed;
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+}
+
+/* Header */
+
+#header{
+    background-color: rgb(0, 1, 72);
+    width: 100%;
+    display: grid;
+    grid-template-columns: 10% 90%;
+}
+#header div:first-child{
+    padding: 14px 0 0 14px;
+}
+#header div:first-child img{
+    border-radius: 20px;
+}
+#header div:last-child{
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px rgb(0, 0, 0), 0 0 5px rgb(0, 0, 0);
+}
+
+/* Add & DashBorad buttons */
+
+#Buttons{
+    margin-top: 20px;
+    margin-left: 30px;
+}
+#Buttons button{
+    font-size: 25px;
+    background-color: rgb(50, 51, 88);
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px rgb(0, 0, 0), 0 0 5px rgb(0, 0, 0);
+}
+
+/* Add Button */
+
+#Buttons button:first-child{
+    width: 250px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+}
+#Buttons button:first-child:hover{
+    box-shadow: 1px 1px 2px rgb(169, 169, 169), 0 0 5px rgb(169, 169, 169), 0 0 5px rgb(169, 169, 169);
+}
+
+/* Go to DashBorad */
+
+#Buttons button:last-child{
+    width: 280px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    margin-left: 20px;
+}
+#Buttons button:last-child:hover{
+    box-shadow: 1px 1px 2px rgb(169, 169, 169), 0 0 5px rgb(169, 169, 169), 0 0 5px rgb(169, 169, 169);
+}
+
+/* Table */
+
+#table{
+    width: 95%;
+    margin-top: 30px;
+}
+#table table{
+    width: 100%;
+    border-collapse: collapse;
+}
+#table table tr:first-child{
+    background-color: rgb(50, 51, 88);
+    color: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+#table table tr th,td{
+    padding: 10px;
+}
