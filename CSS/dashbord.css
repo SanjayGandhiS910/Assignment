@@ -36,16 +36,24 @@ body{
 /* Order Details */
 
 #OrderDetails{
-    width: 100%;
+    width: auto;
+    height: auto;
     padding: 30px;
     margin: 30px;
+    border: 3px solid white;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
 }
-
-#detail{
-    width: 250px;
-    height: 300px;
+#card{
+    background-color: white;
+    width: 17%;
+    height: auto;
     border: 1px solid white;
+    padding: 10px;
+    border-radius: 10px;
 }
-#detail #img{
-    margin: 5px;
+#card img{
+    width: 100%;
+    border-radius: 10px;
 }
