@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Management</title>
+    <link rel="icon" href="/Images/favicon.jpg">
     <link rel="stylesheet" href="/CSS/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+
+    <!-- Header -->
+
     <header id="header">
         <div>
             <a href=""><img src="/Images/OIP.jpg" alt="" height="60em" width="60em"></a>
@@ -16,16 +23,21 @@
         </div>
     </header>
 
+    <!-- Buttons -->
+
     <div id="Buttons">
-        <button><span>Booking Table</span></button>
+        <button id="addPopup"><span>Book Table</span></button>
+        <input type="search" placeholder="Search for names...">
         <button><span>Go to dashboard</span></button>
     </div>
+
+    <!-- Table -->
 
     <center>
         <div id="table">
             <table>
                 <tr>
-                    <th>Table Numbe</th>
+                    <th>Table Number</th>
                     <th>Booked By</th>
                     <th>No of Persons</th>
                     <th>Dining Start Time</th>
@@ -33,8 +45,141 @@
                     <th>TotalAmount</th>
                     <th>Edit & Delete</th>
                 </tr>
+                <tr>
+                    <td>01</td>
+                    <td>Sanjay</td>
+                    <td>03</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>15000</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>Sanjay</td>
+                    <td>03</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>15000</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>Sanjay</td>
+                    <td>03</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>15000</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>Sanjay</td>
+                    <td>03</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>15000</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>Sanjay</td>
+                    <td>03</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>15000</td>
+                    <td></td>
+                </tr>
             </table>
         </div>
     </center>
+
+    <!-- Add Button Popup -->
+
+    <div id="Mask"></div>
+
+    <div id="BookTableForm">
+
+        <span id="closeAddPopup"><i class="fa-solid fa-circle-xmark"></i></span>
+
+        <header>Book Table</header>
+
+        <form id="form">
+
+            <div class="input-box">
+                <label for="">Booked By :</label>
+                <input type="text" placeholder="Enter your name...">
+            </div>
+
+            <div class="input-box">
+                <label for="">Phone Number :</label>
+                <input type="text" placeholder="Enter your Phone Number...">
+            </div>
+
+            <div class="column">
+                <div class="input-box">
+                    <label for="">Table Numer :</label>
+                    <div class="select">
+                        <select name="" id="">
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                            <option value="">4</option>
+                            <option value="">5</option>
+                            <option value="">6</option>
+                            <option value="">7</option>
+                            <option value="">8</option>
+                            <option value="">9</option>
+                            <option value="">10</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="">No of persons :</label>
+                    <div class="select">
+                        <select name="" id="">
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                            <option value="">4</option>
+                            <option value="">5</option>
+                            <option value="">6</option>
+                            <option value="">7</option>
+                            <option value="">8</option>
+                            <option value="">9</option>
+                            <option value="">10</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="input-box">
+                    <label for="">Dining Start Time :</label>
+                    <input type="datetime-local" name="" id="">
+                </div>
+    
+                <div class="input-box">
+                    <label for="">Dining End Time :</label>
+                    <input type="datetime-local" name="" id="">
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="input-box">
+                    <button>Sumbit</button>
+                </div>
+    
+                <div class="input-box">
+                    <button>Reset</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- JavaScript link -->
+
+    <script src="/JavaScript/home.js"></script>
 </body>
 </html>
