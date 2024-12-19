@@ -264,3 +264,30 @@ body{
         margin-left: 0px;
     }
 }
+
+
+/* Footer */
+
+#footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(0, 1, 72);
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+#footer div:first-child{
+    padding: 14px 0 0 14px;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(0, 0, 0), 0 0 5px rgb(0, 0, 0);
+}
+#footer div:last-child{
+    color: white;
+    font-size: 25px;
+    margin-top: 25px;
+}
+#footer div:last-child i{
+    margin-left: 20px;
+}

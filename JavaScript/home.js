@@ -1,5 +1,5 @@
 const mask = document.getElementById("Mask");
-
+const date = new Date()
 // Add Button Popup
 
 function addPopup(){
@@ -37,6 +37,7 @@ function sumbitForm(){
     resetData()
 }
 
+
 function read(){
     let formData = {}
     formData["bookedBy"] = document.getElementById("bookedBy").value
@@ -45,6 +46,26 @@ function read(){
     formData["noOfPerson"] = document.getElementById("noOfPerson").value
     formData["diningStartTime"] = document.getElementById("diningStartTime").value
     formData["diningEndTime"] = document.getElementById("diningEndTime").value
+    
+    if(formData["bookedBy"]==""){
+        document.getElementById("bookedBySpan").style.display="block"
+    }
+    if(formData["phoneNumber"]==""){
+        document.getElementById("phoneNumberSpan").style.display="block"
+    }
+    if(formData["tableNumber"]==""){
+        document.getElementById("tableNumberSpan").style.display="block"
+    }
+    if(formData["noOfPerson"]=="" || formData["noOfPerson"] < 0){
+        document.getElementById("noOfPersonSpan").style.display="block"
+    }
+    if(formData["diningStartTime"] > date.getDate()){
+        document.getElementById("diningStartTimeSpan").style.display="block"
+    }
+    if(formData["diningEndTime"] < formData["diningStartTime"]){
+        document.getElementById("diningEndTimeSpan").style.display="block"
+    }
+
     return formData
 }
 
@@ -80,6 +101,7 @@ function getData(data){
 }
 
 function resetData(){
+    row=null
     event.preventDefault()
     document.getElementById("bookedBy").value = ""
     document.getElementById("phoneNumber").value = ""
@@ -95,8 +117,8 @@ function deleteData(td){
 }
 
 function editData(td){
-    row = td.parentElement.parentElement
     addPopup()
+    row = td.parentElement.parentElement
     document.getElementById("bookedBy").value = row.cells[1].innerHTML
     document.getElementById("tableNumber").value = row.cells[0].innerHTML
     document.getElementById("phoneNumber").value = row.cells[2].innerHTML
