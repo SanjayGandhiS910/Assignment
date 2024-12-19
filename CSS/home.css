@@ -9,6 +9,9 @@ body{
 /* Header */
 
 #header{
+    position: fixed;
+    top: 0;
+    left: 0;
     background-color: rgb(0, 1, 72);
     width: 100%;
     display: grid;
@@ -29,8 +32,11 @@ body{
 /* Add & DashBorad buttons */
 
 #Buttons{
-    margin-top: 30px;
+    width: 95%;
+    margin-top: 110px;
     margin-left: 38px;
+    display: flex;
+    justify-content: flex-end;
 }
 #Buttons button{
     font-size: 20px;
@@ -42,7 +48,7 @@ body{
 /* Mask */
 
 #Mask{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -54,7 +60,7 @@ body{
 
 /* Add Button */
 
-#Buttons button:first-child{
+#Buttons div button:first-child{
     width: 200px;
     height: 40px;
     border-radius: 5px;
@@ -93,6 +99,10 @@ body{
 #Buttons button:last-child:hover{
     box-shadow: 1px 1px 2px rgb(169, 169, 169), 0 0 5px rgb(169, 169, 169), 0 0 5px rgb(169, 169, 169);
 }
+#Buttons button:last-child a{
+    text-decoration: none;
+    color: white;
+}
 
 /* Table */
 
@@ -105,37 +115,44 @@ body{
     width: 100%;
     border-collapse: collapse;
 }
-#table table tr:nth-child(odd){
+#table table thead tr{
+    background-color: rgb(50, 51, 88);
+    color: white;
+}
+#table table tbody tr:nth-child(odd){
+    background-color: rgb(255, 255, 255);
+}
+#table table tbody tr:nth-child(even){
     background-color: rgb(222, 222, 222);
 }
-#table table tr:first-child th:first-child{
+/* #table table thead tr:first-child th:first-child{
     border-top-left-radius: 10px;
 }
-#table table tr:first-child th:last-child{
+#table table thead tr:first-child th:last-child{
     border-top-right-radius: 10px;
 }
-#table table tr:last-child td:first-child{
+#table table tbody tr:last-child td:first-child{
     border-bottom-left-radius: 10px;
 }
-#table table tr:last-child td:last-child{
+#table table tbody tr:last-child td:last-child{
     border-bottom-right-radius: 10px;
-}
+} */
 #table table tr th,td{
     text-align: center;
     padding: 10px;
 }
-#table table tr:nth-child(even){
-    background-color: rgb(255, 255, 255);
+#table table tr td i:first-child{
+    color: green;
 }
-#table table tr:first-child{
-    background-color: rgb(50, 51, 88);
-    color: white;
+#table table tr td i:last-child{
+    color: red;
+    margin-left: 10px;
 }
 
 /* Add button popup */
 
 #BookTableForm{
-    position: absolute;
+    position: fixed;
     top: -150%;
     left: 50%;
     transform: translate(-50%,-50%) scale(1.25);

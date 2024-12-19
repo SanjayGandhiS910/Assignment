@@ -26,70 +26,36 @@
     <!-- Buttons -->
 
     <div id="Buttons">
-        <button id="addPopup"><span>Book Table</span></button>
-        <input type="search" placeholder="Search for names...">
-        <button><span>Go to dashboard</span></button>
+        <div>   
+            <button onclick="addPopup()">Book Table</button>
+        </div>
+        <div>
+            <input type="search" id="search-input"  onkeyup="searchInput()" placeholder="Search for names...">
+        </div>
+        <div>  
+            <button><a href="dashbord.html">Go to dashboard</a></button>
+        </div>
     </div>
 
     <!-- Table -->
 
     <center>
         <div id="table">
-            <table>
-                <tr>
-                    <th>Table Number</th>
-                    <th>Booked By</th>
-                    <th>No of Persons</th>
-                    <th>Dining Start Time</th>
-                    <th>Dining End Time</th>
-                    <th>TotalAmount</th>
-                    <th>Edit & Delete</th>
-                </tr>
-                <tr>
-                    <td>01</td>
-                    <td>Sanjay</td>
-                    <td>03</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>15000</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>01</td>
-                    <td>Sanjay</td>
-                    <td>03</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>15000</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>01</td>
-                    <td>Sanjay</td>
-                    <td>03</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>15000</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>01</td>
-                    <td>Sanjay</td>
-                    <td>03</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>15000</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>01</td>
-                    <td>Sanjay</td>
-                    <td>03</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>15000</td>
-                    <td></td>
-                </tr>
+            <table id="formData">
+                <thead>
+                    <tr>
+                        <th>Table Number</th>
+                        <th>Booked By</th>
+                        <th>Phone Number</th>
+                        <th>No of Persons</th>
+                        <th>Dining Start Time</th>
+                        <th>Dining End Time</th>
+                        <th>TotalAmount</th>
+                        <th>Edit & Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
             </table>
         </div>
     </center>
@@ -108,70 +74,57 @@
 
             <div class="input-box">
                 <label for="">Booked By :</label>
-                <input type="text" placeholder="Enter your name...">
+                <input type="text" placeholder="Enter your name..." id="bookedBy">
             </div>
 
             <div class="input-box">
                 <label for="">Phone Number :</label>
-                <input type="text" placeholder="Enter your Phone Number...">
+                <input type="text" placeholder="Enter your Phone Number..." id="phoneNumber">
             </div>
 
             <div class="column">
                 <div class="input-box">
                     <label for="">Table Numer :</label>
-                    <div class="select">
-                        <select name="" id="">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
-                            <option value="">5</option>
-                            <option value="">6</option>
-                            <option value="">7</option>
-                            <option value="">8</option>
-                            <option value="">9</option>
-                            <option value="">10</option>
+                    <div class="select" >
+                        <select name="" id="tableNumber">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
                         </select>
                     </div>
                 </div>
                 <div class="input-box">
                     <label for="">No of persons :</label>
-                    <div class="select">
-                        <select name="" id="">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
-                            <option value="">5</option>
-                            <option value="">6</option>
-                            <option value="">7</option>
-                            <option value="">8</option>
-                            <option value="">9</option>
-                            <option value="">10</option>
-                        </select>
-                    </div>
+                    <input type="number" id="noOfPerson">
                 </div>
             </div>
 
             <div class="column">
                 <div class="input-box">
                     <label for="">Dining Start Time :</label>
-                    <input type="time" name="" id="">
+                    <input type="time" name="" id="diningStartTime">
                 </div>
     
                 <div class="input-box">
                     <label for="">Dining End Time :</label>
-                    <input type="time" name="" id="">
+                    <input type="time" name="" id="diningEndTime">
                 </div>
             </div>
 
             <div class="column">
                 <div class="input-box">
-                    <button>Sumbit</button>
+                    <button onclick="sumbitForm()">Sumbit</button>
                 </div>
     
                 <div class="input-box">
-                    <button>Reset</button>
+                    <button onclick="resetData()">Reset</button>
                 </div>
             </div>
 
