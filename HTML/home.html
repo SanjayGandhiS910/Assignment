@@ -26,15 +26,12 @@
     <!-- Buttons -->
 
     <div id="Buttons">
-        <div>   
             <button onclick="addPopup()">Book Table</button>
-        </div>
-        <div>
+        
             <input type="search" id="search-input"  onkeyup="searchInput()" placeholder="Search for names...">
-        </div>
-        <div>  
-            <button><a href="dashbord.html">Go to dashboard</a></button>
-        </div>
+        
+            <button><a href="dashboard.html">Go to dashboard</a></button>
+        
     </div>
 
     <!-- Table -->
@@ -42,20 +39,7 @@
     <center>
         <div id="table">
             <table id="formData">
-                <thead>
-                    <tr>
-                        <th>Table Number</th>
-                        <th>Booked By</th>
-                        <th>Phone Number</th>
-                        <th>No of Persons</th>
-                        <th>Dining Start Time</th>
-                        <th>Dining End Time</th>
-                        <th>TotalAmount</th>
-                        <th>Edit & Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
+                
             </table>
         </div>
     </center>
@@ -66,26 +50,20 @@
 
     <div id="BookTableForm">
 
-        <span id="closeAddPopup"><i class="fa-solid fa-circle-xmark"></i></span>
+        <span id="closeAddPopup" onclick="closeAddPopup()"><i class="fa-solid fa-circle-xmark"></i></span>
 
         <header>Book Table</header>
 
-        <form id="form">
+        <form id="form" onsubmit="read()">
 
             <div class="input-box">
                 <label for="">Booked By :</label>
-                <input type="text" placeholder="Enter your name..." id="bookedBy" name="bookedBy">
-                <span style="font-size: 12px; display: none; color: red; margin-top: 5px;" id="bookedBySpan">
-                    Invalid name
-                </span>
+                <input type="text" placeholder="Enter your name..." id="bookedBy" name="bookedBy" required>
             </div>
 
             <div class="input-box">
                 <label for="">Phone Number :</label>
-                <input type="text" placeholder="Enter your Phone Number..." id="phoneNumber" name="phoneNumber">
-                <span style="font-size: 12px; display: none; color: red; margin-top: 5px;" id="phoneNumberSpan">
-                    Invalid phone number
-                </span>
+                <input type="text" placeholder="Enter your Phone Number..." id="phoneNumber" name="phoneNumber" required>
             </div>
 
             <div class="column">
@@ -105,45 +83,102 @@
                             <option value="9">9</option>
                             <option value="10">10</option>
                         </select>
-                        <span style="font-size: 12px; display: none; color: red; margin-top: 5px;" id="tableNumberSpan">
-                            Invalid phone number
-                        </span>
                     </div>
                 </div>
                 <div class="input-box">
                     <label for="">No of persons :</label>
-                    <input type="number" id="noOfPerson" name="noOfPerson">
-                    <span style="font-size: 12px; display: none; color: red; margin-top: 5px;" id="noOfPersonSpan">
-                        Invalid phone number
-                    </span>
+                    <input type="number" id="noOfPerson" name="noOfPerson" required>
                 </div>
             </div>
 
             <div class="column">
                 <div class="input-box">
                     <label for="">Dining Start Time :</label>
-                    <input type="time" name="" id="diningStartTime" name="diningStartTime">
-                    <span style="font-size: 12px; display: none; color: red; margin-top: 5px;" id="diningStartTimeSpan">
-                        Invalid phone number
-                    </span>
+                    <input type="datetime-local" name="" id="diningStartTime" name="diningStartTime" required>
                 </div>
     
                 <div class="input-box">
                     <label for="">Dining End Time :</label>
-                    <input type="time" name="" id="diningEndTime" name="diningEndTime">
-                    <span style="font-size: 12px; display: none; color: red; margin-top: 5px;" id="diningEndTimeSpan">
-                        Invalid phone number
-                    </span>
+                    <input type="datetime-local" name="" id="diningEndTime" name="diningEndTime" required>
                 </div>
             </div>
 
             <div class="column">
                 <div class="input-box">
-                    <button onclick="sumbitForm()">Sumbit</button>
+                    <button type="submit">Sumbit</button>
                 </div>
     
                 <div class="input-box">
-                    <button onclick="resetData()">Reset</button>
+                    <button type="reset" onclick="resetData()">Reset</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+
+    <div id="EditTableForm">
+
+        <span id="closeEditPopup" onclick="closeEditPopup()"><i class="fa-solid fa-circle-xmark"></i></span>
+
+        <header>Edit Table</header>
+
+        <form id="form" onsubmit="updateData()">
+
+            <div class="input-box">
+                <label for="">Booked By :</label>
+                <input type="text" placeholder="Enter your name..." id="bookedBy1" name="bookedBy1" required disabled>
+            </div>
+
+            <div class="input-box">
+                <label for="">Phone Number :</label>
+                <input type="text" placeholder="Enter your Phone Number..." id="phoneNumber1" name="phoneNumber1" required>
+            </div>
+
+            <div class="column">
+                <div class="input-box">
+                    <label for="">Table Numer :</label>
+                    <div class="select" >
+                        <select name="" id="tableNumber1" name="tableNumber1">
+                            <option disabled selected></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="">No of persons :</label>
+                    <input type="number" id="noOfPerson1" name="noOfPerson1" required>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="input-box">
+                    <label for="">Dining Start Time :</label>
+                    <input type="time" name="" id="diningStartTime1" name="diningStartTime1" required>
+                </div>
+    
+                <div class="input-box">
+                    <label for="">Dining End Time :</label>
+                    <input type="time" name="" id="diningEndTime1" name="diningEndTime1" required>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="input-box">
+                    <button type="submit" style="background-color: orange;">Edit</button>
+                </div>
+    
+                <div class="input-box">
+                    <button type="reset" onclick="">Reset</button>
                 </div>
             </div>
 
@@ -165,6 +200,6 @@
 
     <!-- JavaScript link -->
 
-    <script src="/JavaScript/home.js"></script>
+    <script src="/JavaScript/homie.js"></script>
 </body>
 </html>

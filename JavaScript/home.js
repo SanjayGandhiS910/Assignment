@@ -15,6 +15,12 @@ function addPopup(){
 
 const closeAddPopup = document.getElementById("closeAddPopup");
 closeAddPopup.addEventListener("click",function(){
+    document.getElementById("bookedBySpan").style.display="none"
+    document.getElementById("phoneNumberSpan").style.display="none"
+    document.getElementById("tableNumberSpan").style.display="none"
+    document.getElementById("noOfPersonSpan").style.display="none"
+    document.getElementById("diningStartTimeSpan").style.display="none"
+    document.getElementById("diningEndTimeSpan").style.display="none"
     let a=document.getElementById("BookTableForm");
     a.style.display = "none";
     mask.style.display = "none";
@@ -65,7 +71,6 @@ function read(){
     if(formData["diningEndTime"] < formData["diningStartTime"]){
         document.getElementById("diningEndTimeSpan").style.display="block"
     }
-
     return formData
 }
 
@@ -96,8 +101,8 @@ function getData(data){
     
     cell8 = row.insertCell(7)
     cell8.innerHTML = `
-    <i class="fa-solid fa-pen-to-square" onclick="editData(this)"></i>
-    <i class="fa-solid fa-trash-can" onclick="deleteData(this)"></i>`
+    <i class="fa-solid fa-pen-to-square" onclick=""></i>
+    <i class="fa-solid fa-trash-can" onclick=""></i>`
 }
 
 function resetData(){
@@ -158,4 +163,8 @@ function searchInput() {
       }       
     }
   }
+
+
+
+  console.log(sessionStorage.getItem())
 
