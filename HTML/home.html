@@ -26,11 +26,12 @@
     <!-- Buttons -->
 
     <div id="Buttons">
-            <button onclick="addPopup()">Book Table</button>
+            <button onclick="addPopup()" style="font-family: cursive;">Book Table</button>
         
-            <input type="search" id="search-input"  onkeyup="searchInput()" placeholder="Search for names...">
+            <input type="search" id="search-input"  onkeyup="searchInput()" placeholder="Search for table no..."
+            style="font-family: cursive;">
         
-            <button><a href="dashboard.html">Go to dashboard</a></button>
+            <button><a href="dashboard.html" style="font-family: cursive;">View dashboard</a></button>
         
     </div>
 
@@ -63,14 +64,14 @@
 
             <div class="input-box">
                 <label for="">Phone Number :</label>
-                <input type="text" placeholder="Enter your Phone Number..." id="phoneNumber" name="phoneNumber" required>
+                <input type="text" placeholder="Enter your Phone Number..." pattern="[6789][0-9]{9}" id="phoneNumber" name="phoneNumber" required>
             </div>
 
             <div class="column">
                 <div class="input-box">
                     <label for="">Table Numer :</label>
                     <div class="select" >
-                        <select name="" id="tableNumber" name="tableNumber">
+                        <select name="" id="tableNumber" name="tableNumber" required>
                             <option disabled selected></option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -88,6 +89,7 @@
                 <div class="input-box">
                     <label for="">No of persons :</label>
                     <input type="number" id="noOfPerson" name="noOfPerson" required>
+                    <span id="noOfPersonSpan" style="color: red; display: none; font-size: 12px;"></span>
                 </div>
             </div>
 
@@ -109,7 +111,7 @@
                 </div>
     
                 <div class="input-box">
-                    <button type="reset" onclick="resetData()">Reset</button>
+                    <button type="reset">Reset</button>
                 </div>
             </div>
 
@@ -127,19 +129,19 @@
 
             <div class="input-box">
                 <label for="">Booked By :</label>
-                <input type="text" placeholder="Enter your name..." id="bookedBy1" name="bookedBy1" required disabled>
+                <input type="text" placeholder="Enter your name..." id="bookedBy1" name="bookedBy1" required>
             </div>
 
             <div class="input-box">
                 <label for="">Phone Number :</label>
-                <input type="text" placeholder="Enter your Phone Number..." id="phoneNumber1" name="phoneNumber1" required>
+                <input type="number" placeholder="Enter your Phone Number..." id="phoneNumber1" name="phoneNumber1" required disabled>
             </div>
 
             <div class="column">
                 <div class="input-box">
                     <label for="">Table Numer :</label>
                     <div class="select" >
-                        <select name="" id="tableNumber1" name="tableNumber1">
+                        <select name="" id="tableNumber1" name="tableNumber1" required>
                             <option disabled selected></option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -157,28 +159,29 @@
                 <div class="input-box">
                     <label for="">No of persons :</label>
                     <input type="number" id="noOfPerson1" name="noOfPerson1" required>
+                    <span id="noOfPersonEditSpan" style="color: red; display: none; font-size: 12px;"></span>
                 </div>
             </div>
 
             <div class="column">
                 <div class="input-box">
                     <label for="">Dining Start Time :</label>
-                    <input type="time" name="" id="diningStartTime1" name="diningStartTime1" required>
+                    <input type="datetime-local" name="" id="diningStartTime1" name="diningStartTime1" required>
                 </div>
     
                 <div class="input-box">
                     <label for="">Dining End Time :</label>
-                    <input type="time" name="" id="diningEndTime1" name="diningEndTime1" required>
+                    <input type="datetime-local" name="" id="diningEndTime1" name="diningEndTime1" required>
                 </div>
             </div>
 
             <div class="column">
                 <div class="input-box">
-                    <button type="submit" style="background-color: orange;">Edit</button>
+                    <button type="submit">Sumbit</button>
                 </div>
     
                 <div class="input-box">
-                    <button type="reset" onclick="">Reset</button>
+                    <button onclick="resetValue()">Reset</button>
                 </div>
             </div>
 

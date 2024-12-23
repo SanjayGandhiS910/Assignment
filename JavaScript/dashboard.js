@@ -1,5 +1,5 @@
 
-let a = sessionStorage.getItem("OrderDetail")
+let a = localStorage.getItem("OrderDetail")
 let b = JSON.parse(a)
 
 var html = ""
