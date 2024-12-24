@@ -142,17 +142,31 @@ function addFormData(){
     let b = JSON.parse(a)
 
     for( i in b){
+        let srt = new Date(b[i]["diningStartTime"])
+        let end = new Date(b[i]["diningEndTime"])
+        const option = {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+        }
+        let srtTime = srt.toLocaleString('en-US',option)
+        let endTime = end.toLocaleString('en-US',option)
+        let formateSrt = srtTime.replace(',','')
+        let formateEnd = endTime.replace(',','')
     table += `
         <tr>
             <td>${b[i]["tableNumber"]}</td>
             <td>${b[i]["bookedBy"]}</td>
             <td>${b[i]["phoneNumber"]}</td>
             <td>${b[i]["noOfPerson"]}</td>
-            <td>${b[i]["diningStartTime"]}</td>
-            <td>${b[i]["diningEndTime"]}</td>
+            <td>${formateSrt}</td>
+            <td>${formateEnd}</td>
             <td>${b[i]["noOfPerson"] * 1450}</td>
-            <td id="${b[i]["phoneNumber"]}e"><i class="fa-solid fa-pen-to-square" id="${b[i]["phoneNumber"]}" onclick="editData(this)"></i>
-                <i class="fa-solid fa-trash-can" id="${b[i]["phoneNumber"]}d" onclick="deleteData(this)"></i>
+            <td id="${b[i]["phoneNumber"]}"><i class="fa-solid fa-pen-to-square" onclick="editData(this)"></i>
+                <i class="fa-solid fa-trash-can" onclick="deleteData(this)"></i>
             </td>
         </tr>`
     }
@@ -223,9 +237,25 @@ function updateData(){
         alert("The end time should be greater than the start time")
         return
     }
+
+    
+    let d = array;
+    if(true){
+        let bool = false;
+        for(i in d){
+            if(d[i]["tableNumber"]==formData["tableNumber"]){
+                if(new Date(d[i]["diningEndTime"]) > a){
+                    bool = true;
+                }
+            }
+        }
+        if(bool){
+            alert("table no." + formData["tableNumber"] +" was Booked")
+            return
+        }
+    }
     
     let rowEdit = document.getElementById("phoneNumber1").value;
-    console.log(rowEdit)
     
     array.forEach(index => {
 
@@ -310,18 +340,19 @@ function removeIcon(){
     if(arr.length > 0){
         for(i in arr){
             if( new Date(arr[i]["diningStartTime"]) < check){
-                document.getElementById(arr[i]["phoneNumber"]).style.display = "none"
-                document.getElementById(arr[i]["phoneNumber"]+"d").style.display = "none"
-                document.getElementById(arr[i]["phoneNumber"]+"e").innerHTML = "--"
+                document.getElementById(arr[i]["phoneNumber"]).innerHTML = "--"
             }
         }
     }
 }
 
+setInterval(()=>{
+    removeIcon()
+},1000)
+
 
 // localStorage.clear()
 
- 
 
 
 
