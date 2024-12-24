@@ -95,14 +95,6 @@ function read(){
         alert("The end time should be greater than the start time")
         return
     }
-    else if( a.getDate() != b.getDate() ){
-        alert("The end time and start time should be same")
-        return
-    }
-    else if( a.getDate() == b.getDate() && a.getMonth() != b.getMonth() ){
-        alert("Invalid Month")
-        return
-    }
 
     let d = array;
     if(true){
@@ -128,6 +120,8 @@ function read(){
 
 function addFormData(){
 
+    localStorage.setItem("OrderDetail",JSON.stringify(array))
+
     var table = `
                 <thead>
                     <tr>
@@ -142,25 +136,26 @@ function addFormData(){
                     </tr>
                 </thead>
                 <tbody>`
-    
-    array.forEach( addtableData => {
-        table += `
-                    <tr>
-                        <td>${addtableData.tableNumber}</td>
-                        <td>${addtableData.bookedBy}</td>
-                        <td>${addtableData.phoneNumber}</td>
-                        <td>${addtableData.noOfPerson}</td>
-                        <td>${addtableData.diningStartTime}</td>
-                        <td>${addtableData.diningEndTime}</td>
-                        <td>${addtableData.noOfPerson * 1450}</td>
-                        <td><i class="fa-solid fa-pen-to-square" onclick="editData(this)"></i>
-                            <i class="fa-solid fa-trash-can" onclick="deleteData(this)"></i>
-                        </td>
-                    </tr>
-            `              
-    })
 
-    localStorage.setItem("OrderDetail",JSON.stringify(array))
+    
+    let a = localStorage.getItem("OrderDetail")
+    let b = JSON.parse(a)
+
+    for( i in b){
+    table += `
+        <tr>
+            <td>${b[i]["tableNumber"]}</td>
+            <td>${b[i]["bookedBy"]}</td>
+            <td>${b[i]["phoneNumber"]}</td>
+            <td>${b[i]["noOfPerson"]}</td>
+            <td>${b[i]["diningStartTime"]}</td>
+            <td>${b[i]["diningEndTime"]}</td>
+            <td>${b[i]["noOfPerson"] * 1450}</td>
+            <td id="${b[i]["phoneNumber"]}e"><i class="fa-solid fa-pen-to-square" id="${b[i]["phoneNumber"]}" onclick="editData(this)"></i>
+                <i class="fa-solid fa-trash-can" id="${b[i]["phoneNumber"]}d" onclick="deleteData(this)"></i>
+            </td>
+        </tr>`
+    }
 
     document.getElementById("formData").innerHTML = table
 
@@ -201,6 +196,7 @@ function updateData(){
 
     let a = new Date(diningStartTime1)
     let b = new Date(diningEndTime1)
+    let c = new Date()
 
     if(tableNumber1 > 0 && tableNumber1 <= 5 ){
         if( !(noOfPerson1 >= 1 && noOfPerson1 <= 5) ){
@@ -219,7 +215,11 @@ function updateData(){
     document.getElementById("noOfPersonEditSpan").innerHTML = ""
     document.getElementById("noOfPersonEditSpan").style.display = "none"
 
-    if( a >= b ){
+    if( c > a ){
+        alert("The start time should be greater than the current time")
+        return
+    }
+    else if( a >= b ){
         alert("The end time should be greater than the start time")
         return
     }
@@ -295,6 +295,21 @@ function searchInput() {
       }       
     }
   }
+
+
+let arr = array;
+let check = new Date()
+console.log(arr.length > 0)
+
+if(arr.length > 0){
+    for(i in arr){
+        if( new Date(arr[i]["diningStartTime"]) < check){
+            document.getElementById(arr[i]["phoneNumber"]).style.display = "none"
+            document.getElementById(arr[i]["phoneNumber"]+"d").style.display = "none"
+            document.getElementById(arr[i]["phoneNumber"]+"e").innerHTML = "Expired"
+        }
+    }
+}
 
  
 

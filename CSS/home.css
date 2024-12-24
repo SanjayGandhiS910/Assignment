@@ -109,6 +109,7 @@ body{
 #table{
     width: 95%;
     margin-top: 25px;
+    margin-bottom: 100px;
     overflow-x: auto;
 }
 #table table{
