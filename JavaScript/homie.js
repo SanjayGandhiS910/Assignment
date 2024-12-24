@@ -159,7 +159,7 @@ function addFormData(){
 
     document.getElementById("formData").innerHTML = table
 
-    console.log(array)
+    removeIcon()
 }
 
 
@@ -257,6 +257,8 @@ function deleteData(row){
     }
 }
 
+//reset button
+
 function resetData(){
     event.preventDefault()
     document.getElementById("bookedBy").value = ""
@@ -266,6 +268,8 @@ function resetData(){
     document.getElementById("diningStartTime").value = ""
     document.getElementById("diningEndTime").value =  ""
 }
+
+//reset button in 
 
 function resetValue(){
     document.getElementById("bookedBy1").value = ""
@@ -297,19 +301,25 @@ function searchInput() {
   }
 
 
-let arr = array;
-let check = new Date()
-console.log(arr.length > 0)
+//Remove the edit and delete icone based on current time 
 
-if(arr.length > 0){
-    for(i in arr){
-        if( new Date(arr[i]["diningStartTime"]) < check){
-            document.getElementById(arr[i]["phoneNumber"]).style.display = "none"
-            document.getElementById(arr[i]["phoneNumber"]+"d").style.display = "none"
-            document.getElementById(arr[i]["phoneNumber"]+"e").innerHTML = "Expired"
+function removeIcon(){
+    let arr = array;
+    let check = new Date()
+
+    if(arr.length > 0){
+        for(i in arr){
+            if( new Date(arr[i]["diningStartTime"]) < check){
+                document.getElementById(arr[i]["phoneNumber"]).style.display = "none"
+                document.getElementById(arr[i]["phoneNumber"]+"d").style.display = "none"
+                document.getElementById(arr[i]["phoneNumber"]+"e").innerHTML = "--"
+            }
         }
     }
 }
+
+
+// localStorage.clear()
 
  
 

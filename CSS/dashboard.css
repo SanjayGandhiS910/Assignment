@@ -53,13 +53,28 @@ body{
     border-radius: 10px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 321px) {
+    #header{
+        grid-template-columns: 20% 80%;
+    }
+    #header div:last-child{
+        font-size: 13px;
+    }
+    #header div:first-child{
+        padding: 25px 0 0 25px;
+    }
+}
+
+@media screen and (max-width: 500px) and (min-width: 321px){
     #OrderDetails{
         display: block;
     }
     #card{
         width: 90%;
         margin-bottom: 20px;
+    }
+    #header{
+        grid-template-columns: 15% 85%;
     }
 }
 
