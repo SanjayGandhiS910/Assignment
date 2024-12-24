@@ -68,6 +68,7 @@ function read(){
 
     let a = new Date(formData["diningStartTime"])
     let b = new Date(formData["diningEndTime"])
+    let c = new Date()
 
     if(formData["tableNumber"] > 0 && formData["tableNumber"] <= 5 ){
         if( !(formData["noOfPerson"] >= 1 && formData["noOfPerson"] <= 5) ){
@@ -86,17 +87,29 @@ function read(){
     document.getElementById("noOfPersonSpan").innerHTML = ""
     document.getElementById("noOfPersonSpan").style.display = "none"
 
-    if( a >= b ){
+    if( c > a ){
+        alert("The start time should be greater than the current time")
+        return
+    }
+    else if( a >= b ){
         alert("The end time should be greater than the start time")
         return
     }
+    else if( a.getDate() != b.getDate() ){
+        alert("The end time and start time should be same")
+        return
+    }
+    else if( a.getDate() == b.getDate() && a.getMonth() != b.getMonth() ){
+        alert("Invalid Month")
+        return
+    }
 
-    let c = array;
+    let d = array;
     if(true){
         let bool = false;
-        for(i in c){
-            if(c[i]["tableNumber"]==formData["tableNumber"]){
-                if(new Date(c[i]["diningEndTime"]) > a){
+        for(i in d){
+            if(d[i]["tableNumber"]==formData["tableNumber"]){
+                if(new Date(d[i]["diningEndTime"]) > a){
                     bool = true;
                 }
             }
@@ -233,11 +246,11 @@ function deleteData(row){
     let boolean = confirm("Do you want delete?");
     if(boolean){
         deleteRow = row.parentElement.parentElement;
-        rowEdit = deleteRow.cells[1].innerHTML
+        rowEdit = deleteRow.cells[2].innerHTML
 
         array.forEach( index => {
-            if(rowEdit==index.bookedBy){
-                array.splice((deleteData.rowIndex)-1,1)
+            if(rowEdit==index.phoneNumber){
+                array.splice(array.indexOf(index),1)
                 addFormData()
             }
         })
