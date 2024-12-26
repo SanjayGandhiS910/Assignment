@@ -3,7 +3,7 @@ const mask = document.getElementById("Mask");
 // Add Button Popup 
 
 function addPopup(){
-    let a=document.getElementById("BookTableForm");
+    let a = document.getElementById("BookTableForm");
     a.style.top = "50%";
     a.style.transform = "translate(-50%,-50%) scale(1)";
     a.style.opacity = "1";
@@ -12,7 +12,7 @@ function addPopup(){
 };
 
 function editPopup(){
-    let a=document.getElementById("EditTableForm");
+    let a = document.getElementById("EditTableForm");
     a.style.top = "50%";
     a.style.transform = "translate(-50%,-50%) scale(1)";
     a.style.opacity = "1";
@@ -23,19 +23,17 @@ function editPopup(){
 // close Add Button Popup
 
 function closeAddPopup(){
-    let a=document.getElementById("BookTableForm");
+    let a = document.getElementById("BookTableForm");
     a.style.display = "none";
     mask.style.display = "none";
     document.getElementById("noOfPersonSpan").innerHTML = ""
-    document.getElementById("noOfPersonSpan").style.display = "none"
 }
 
 function closeEditPopup(){
-    let a=document.getElementById("EditTableForm");
+    let a = document.getElementById("EditTableForm");
     a.style.display = "none";
     mask.style.display = "none";
     document.getElementById("noOfPersonEditSpan").innerHTML = ""
-    document.getElementById("noOfPersonEditSpan").style.display = "none"
 }
 
 // Add data in array formate
@@ -46,7 +44,9 @@ storage()
 addFormData()
 
 function storage(){
+
     let a = localStorage.key("OrderDetail")
+
     if(a){
         let b = localStorage.getItem(a)
         array = JSON.parse(b)
@@ -66,6 +66,8 @@ function read(){
     formData["diningStartTime"] = document.getElementById("diningStartTime").value
     formData["diningEndTime"] = document.getElementById("diningEndTime").value
 
+    // Book Table Form funtionality
+
     let a = new Date(formData["diningStartTime"])
     let b = new Date(formData["diningEndTime"])
     let c = new Date()
@@ -76,7 +78,8 @@ function read(){
             document.getElementById("noOfPersonSpan").style.display = "block"
             return
         }
-    }else if(formData["tableNumber"] > 5 && formData["tableNumber"] <= 10 ){
+    }
+    else if(formData["tableNumber"] > 5 && formData["tableNumber"] <= 10 ){
         if( !(formData["noOfPerson"] >= 1 && formData["noOfPerson"] <= 10) ){
             document.getElementById("noOfPersonSpan").innerHTML = "Max persons per table no " + formData["tableNumber"] + " is 10 persons "
             document.getElementById("noOfPersonSpan").style.display = "block"
@@ -85,7 +88,6 @@ function read(){
     }
     
     document.getElementById("noOfPersonSpan").innerHTML = ""
-    document.getElementById("noOfPersonSpan").style.display = "none"
 
     if( c > a ){
         alert("The start time should be greater than the current time")
@@ -96,7 +98,10 @@ function read(){
         return
     }
 
+    // the booking table already booked or not
+
     let d = array;
+
     if(true){
         let bool = false;
         for(i in d){
@@ -107,6 +112,7 @@ function read(){
             }
         }
         if(bool){
+            document.getElementById("noOfPersonSpan").innerHTML = ""
             alert("table no." + formData["tableNumber"] +" was Booked")
             return
         }
@@ -141,9 +147,13 @@ function addFormData(){
     let a = localStorage.getItem("OrderDetail")
     let b = JSON.parse(a)
 
+    // diningStartTime and diningEndTime readable formate
+
     for( i in b){
+
         let srt = new Date(b[i]["diningStartTime"])
         let end = new Date(b[i]["diningEndTime"])
+
         const option = {
             year: 'numeric',
             month: 'short',
@@ -152,10 +162,12 @@ function addFormData(){
             minute: '2-digit',
             hour12: false
         }
+
         let srtTime = srt.toLocaleString('en-US',option)
         let endTime = end.toLocaleString('en-US',option)
         let formateSrt = srtTime.replace(',','')
         let formateEnd = endTime.replace(',','')
+
     table += `
         <tr>
             <td>${b[i]["tableNumber"]}</td>
@@ -203,6 +215,8 @@ function updateData(){
 
     event.preventDefault()
 
+    // // Edit Table Form funtionality
+
     let tableNumber1 = document.getElementById("tableNumber1").value
     let noOfPerson1 = document.getElementById("noOfPerson1").value
     let diningStartTime1 = document.getElementById("diningStartTime1").value
@@ -218,7 +232,8 @@ function updateData(){
             document.getElementById("noOfPersonEditSpan").style.display = "block"
             return
         }
-    }else if(formData["tableNumber"] > 5 && formData["tableNumber"] <= 10 ){
+    }
+    else if(formData["tableNumber"] > 5 && formData["tableNumber"] <= 10 ){
         if( !(noOfPerson1 >= 1 && noOfPerson1 <= 10) ){
             document.getElementById("noOfPersonEditSpan").innerHTML = "Max persons per table no " + formData["tableNumber"] + " is 10 persons "
             document.getElementById("noOfPersonEditSpan").style.display = "block"
@@ -227,7 +242,6 @@ function updateData(){
     }
     
     document.getElementById("noOfPersonEditSpan").innerHTML = ""
-    document.getElementById("noOfPersonEditSpan").style.display = "none"
 
     if( c > a ){
         alert("The start time should be greater than the current time")
@@ -238,8 +252,10 @@ function updateData(){
         return
     }
 
+    // the booking table already booked or not
     
     let d = array;
+
     if(true){
         let bool = false;
         for(i in d){
@@ -269,11 +285,16 @@ function updateData(){
             addFormData()
         }
     })
+
     closeEditPopup()
 }
 
+// delete the table data
+
 function deleteData(row){
+
     let boolean = confirm("Do you want delete?");
+
     if(boolean){
         deleteRow = row.parentElement.parentElement;
         rowEdit = deleteRow.cells[2].innerHTML
@@ -312,16 +333,15 @@ function resetValue(){
 // Search by Table no
 
 function searchInput() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("search-input");
-    filter = input.value;
+    var input, table, tr, td, i, txtValue;
+    input = document.getElementById("search-input").value;
     table = document.getElementById("formData");
     tr = table.getElementsByTagName("tr");
     for (i = 0; i < tr.length; i++) {
       td = tr[i].getElementsByTagName("td")[0];
       if (td) {
-        txtValue = td.innerText;
-        if (txtValue.indexOf(filter) > -1) {
+        txtValue = td.innerHTML;
+        if (txtValue.indexOf(input) > -1) {
           tr[i].style.display = "";
         } else {
           tr[i].style.display = "none";
@@ -346,9 +366,7 @@ function removeIcon(){
     }
 }
 
-setInterval(()=>{
-    removeIcon()
-},1000)
+setInterval( removeIcon() , 1000)
 
 
 // localStorage.clear()

@@ -108,7 +108,7 @@ body{
 
 #table{
     width: 95%;
-    margin-top: 25px;
+    margin-top: 23px;
     margin-bottom: 100px;
     overflow-x: auto;
 }
@@ -295,15 +295,15 @@ body{
         margin-left: 25px;
     }
     #Buttons input{
-        width: 80%;
+        width: 90%;
         margin: 20px 0 0 0;
     }
     #Buttons button:first-child{
-        width: 80%;
+        width: 90%;
         margin: 20px 0 0 0;
     }
     #Buttons button:last-child{
-        width: 80%;
+        width: 90%;
         margin: 20px 0 0 0;
     }
     #header{
@@ -358,6 +358,9 @@ body{
     }
     #header div:last-child{
         font-size: 14px;
+    }
+    #header div:first-child{
+        padding: 25px 0 0 25px;
     }
 }
 
