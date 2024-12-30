@@ -26,12 +26,11 @@
     <!-- Buttons -->
 
     <div id="Buttons">
-            <button onclick="addPopup()" style="font-family: cursive;">Book Table</button>
+            <button onclick="addPopup()">Book Table</button>
         
-            <input type="search" id="search-input"  onkeyup="searchInput()" placeholder="Search for table no..."
-            style="font-family: cursive;">
+            <input type="search" id="search-input"  onkeyup="searchInput()" placeholder="Search for table no...">
         
-            <button><a href="dashboard.html" style="font-family: cursive;">View Dashboard</a></button>
+            <button><a href="dashboard.html">View Dashboard</a></button>
         
     </div>
 
@@ -47,9 +46,9 @@
 
     <!-- Add Button Popup -->
 
-    <div id="Mask"></div>
+    <div id="Mask" class="Mask"></div>
 
-    <div id="BookTableForm">
+    <div id="BookTableForm" class="BookTableForm">
 
         <span id="closeAddPopup" onclick="closeAddPopup()"><i class="fa-solid fa-circle-xmark"></i></span>
 
@@ -64,7 +63,7 @@
 
             <div class="input-box">
                 <label for="">Phone Number :</label>
-                <input type="text" placeholder="Enter your Phone Number..." pattern="[6789][0-9]{9}" id="phoneNumber" name="phoneNumber" required>
+                <input type="text" placeholder="Enter your Phone Number..." pattern="[0-9]{10}" id="phoneNumber" name="phoneNumber" required>
             </div>
 
             <div class="column">
@@ -89,7 +88,7 @@
                 <div class="input-box">
                     <label for="">No of persons :</label>
                     <input type="number" id="noOfPerson" name="noOfPerson" required>
-                    <span id="noOfPersonSpan" style="color: red; display: none; font-size: 12px;"></span>
+                    <span id="noOfPersonSpan" class="noOfPersonSpan"></span>
                 </div>
             </div>
 
@@ -119,7 +118,7 @@
     </div>
 
 
-    <div id="EditTableForm">
+    <div id="EditTableForm" class="EditTableForm">
 
         <span id="closeEditPopup" onclick="closeEditPopup()"><i class="fa-solid fa-circle-xmark"></i></span>
 
@@ -159,7 +158,7 @@
                 <div class="input-box">
                     <label for="">No of persons :</label>
                     <input type="number" id="noOfPerson1" name="noOfPerson1" required>
-                    <span id="noOfPersonEditSpan" style="color: red; display: none; font-size: 12px;"></span>
+                    <span id="noOfPersonEditSpan" class="noOfPersonEditSpan"></span>
                 </div>
             </div>
 
@@ -204,5 +203,6 @@
     <!-- JavaScript link -->
 
     <script src="/JavaScript/homie.js"></script>
+    
 </body>
 </html>

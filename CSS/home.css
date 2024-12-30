@@ -23,6 +23,7 @@ body{
 #header div:first-child img{
     border-radius: 20px;
 }
+
 #header div:last-child{
     text-align: center;
     color: white;
@@ -47,7 +48,7 @@ body{
 
 /* Mask */
 
-#Mask{
+.Mask{
     position: fixed;
     top: 0;
     left: 0;
@@ -58,6 +59,10 @@ body{
     display: none;
 }
 
+.Mask.active{
+    display: block;
+}
+
 /* Add Button */
 
 #Buttons button:first-child{
@@ -65,6 +70,7 @@ body{
     height: 40px;
     border-radius: 5px;
     border: none;
+    font-family: cursive;
 }
 #Buttons button:first-child:hover{
     box-shadow: 1px 1px 2px rgb(169, 169, 169), 0 0 5px rgb(169, 169, 169), 0 0 5px rgb(169, 169, 169);
@@ -95,6 +101,7 @@ body{
     border-radius: 5px;
     border: none;
     margin-left: 10px;
+    font-family: cursive;
 }
 #Buttons button:last-child:hover{
     box-shadow: 1px 1px 2px rgb(169, 169, 169), 0 0 5px rgb(169, 169, 169), 0 0 5px rgb(169, 169, 169);
@@ -152,7 +159,7 @@ body{
 
 /* Add button popup */
 
-#BookTableForm, #EditTableForm{
+.BookTableForm, .EditTableForm{
     position: fixed;
     top: -150%;
     left: 50%;
@@ -167,9 +174,21 @@ body{
     transition: top 0s, opacity 500ms, transtion 20ms;
 }
 
+.BookTableForm.active{
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1);
+    opacity: 1;
+}
+
+.EditTableForm.active{
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1);
+    opacity: 1;
+}
+
 /* close form icon */
 
-#BookTableForm span#closeAddPopup{
+.BookTableForm span#closeAddPopup{
     font-size: 30px;
     position: absolute;
     top: -15px;
@@ -177,7 +196,7 @@ body{
     color: rgb(56, 56, 56);
 }
 
-#EditTableForm span#closeEditPopup{
+.EditTableForm span#closeEditPopup{
     font-size: 30px;
     position: absolute;
     top: -15px;
@@ -187,7 +206,7 @@ body{
 
 /* Form header */
 
-#BookTableForm header{
+.BookTableForm header{
     text-align: center;
     background-color: rgb(50, 51, 88);
     color: white;
@@ -234,6 +253,22 @@ body{
     border: none;
     border-radius: 5px;
     color: gray;
+}
+.noOfPersonSpan{
+    color: red;
+    font-size: 12px;
+    display: none;
+}
+.noOfPersonSpan.active{
+    display: block;
+}
+.noOfPersonEditSpan{
+    color: red;
+    font-size: 12px;
+    display: none;
+}
+.noOfPersonEditSpan.active{
+    display: block;
 }
 
 /* Form Buttons */
@@ -397,7 +432,6 @@ body{
 #footer div:first-child{
     text-align: center;
     color: white;
-    text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(0, 0, 0), 0 0 5px rgb(0, 0, 0);
 }
 #footer div:last-child{
     color: white;
