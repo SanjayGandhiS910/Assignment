@@ -1,6 +1,6 @@
 const mask = document.getElementById("Mask");
 
-// Add Button Popup 
+// Add & Edit Button Popup 
 
 function addPopup(){
     let a = document.getElementById("BookTableForm");
@@ -14,7 +14,7 @@ function editPopup(){
     mask.classList.add("active");
 };
 
-// close Add Button Popup
+// close Add & Edit Button Popup
 
 function closeAddPopup(){
     let a = document.getElementById("BookTableForm");
@@ -41,7 +41,6 @@ function deleteIconPopup(){
 
 // Add data in array formate
 
-
 let array = [];
 storage();
 
@@ -65,7 +64,8 @@ function storage(){
     }
 }
 
-// 
+// push form data in array
+
 function read(){
 
     event.preventDefault();
@@ -118,27 +118,26 @@ function read(){
         let bool = false;
         for(let i in d){
             if(d[i]["tableNumber"] == formData["tableNumber"]){
-                if(new Date(d[i]["diningEndTime"]) > a){
+                if(new Date(d[i]["diningEndTime"]) > diningSrt){
                     bool = true;
                 }
             }
         }
         if(bool){
-            document.getElementById("noOfPersonSpan").innerHTML = ""
+            document.getElementById("noOfPersonSpan").innerHTML = "";
             alert("table no." + formData["tableNumber"] +" was Booked");
             return;
         }
     }
 
-    
-    if(true){
-        for(let i in d){
-            if(d[i]["phoneNumber"]==formData["phoneNumber"]){
-                    alert("already exits");
-                    return;
-            }
-        }
-    }
+    // if(true){
+    //     for(let i in d){
+    //         if(d[i]["phoneNumber"] == formData["phoneNumber"]){
+    //                 alert("Phone Number already exits");
+    //                 return;
+    //         }
+    //     }
+    // }
 
     array.push(formData);
     addFormData();
@@ -183,7 +182,7 @@ function addFormData(){
             hour: '2-digit',
             minute: '2-digit',
             hour12: false
-        }
+        };
 
         let srtTime = srt.toLocaleString('en-US',option);
         let endTime = end.toLocaleString('en-US',option);
@@ -226,7 +225,7 @@ function noData(){
                 </thead>
                 <tbody id="tableBody">
                     <tr>
-                        <td colspan="8">No Data Here</td>
+                        <td colspan="8">No Data Available</td>
                     </tr>
                 </tbody>`;
         
@@ -395,9 +394,6 @@ setInterval( () => {
         }
     }
 },1000);
-
-
-
 
 // localStorage.clear()
 

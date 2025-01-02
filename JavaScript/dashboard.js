@@ -1,11 +1,11 @@
 
-let a = localStorage.getItem("OrderDetail")
-let b = JSON.parse(a)
+let a = localStorage.getItem("OrderDetail");
+let b = JSON.parse(a);
 
-var html = ""
+var html = "";
 for( i in b){
-    let srt = new Date(b[i]["diningStartTime"])
-    let end = new Date(b[i]["diningEndTime"])
+    let srt = new Date(b[i]["diningStartTime"]);
+    let end = new Date(b[i]["diningEndTime"]);
     const option = {
         year: 'numeric',
         month: 'short',
@@ -13,11 +13,11 @@ for( i in b){
         hour: '2-digit',
         minute: '2-digit',
         hour12: false
-    }
-    let srtTime = srt.toLocaleString('en-US',option)
-    let endTime = end.toLocaleString('en-US',option)
-    let formateSrt = srtTime.replace(',','')
-    let formateEnd = endTime.replace(',','')
+    };
+    let srtTime = srt.toLocaleString('en-US',option);
+    let endTime = end.toLocaleString('en-US',option);
+    let formateSrt = srtTime.replace(',','');
+    let formateEnd = endTime.replace(',','');
     html += `
         <div id="card">
             <img src="/Images/tableImg.jpg" alt="Table Image" height="200px" width="240px">
@@ -29,4 +29,4 @@ for( i in b){
             </div>
         </div>`
 }
-document.getElementById("OrderDetails").innerHTML += html
+document.getElementById("OrderDetails").innerHTML += html;
